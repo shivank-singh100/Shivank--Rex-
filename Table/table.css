@@ -1,0 +1,14 @@
+body{
+    background-color: slategrey;
+}
+div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+table{
+    text-align: center;
+    border-color: aqua;
+    background-color: steelblue;
+}

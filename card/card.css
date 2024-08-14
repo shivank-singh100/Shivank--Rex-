@@ -1,0 +1,52 @@
+body{
+    background-color: black;
+}
+.box{
+    background-color: rgb(23, 17, 25);
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+    margin: auto;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.box:hover::after, .box:hover::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),transparent 50%,rgb(92, 3, 92));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+.box:hover{
+    background: linear-gradient(145deg,purple,black,blue);
+}
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+.box::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+h1, h2{
+    color: white;
+    text-align: center;
+}

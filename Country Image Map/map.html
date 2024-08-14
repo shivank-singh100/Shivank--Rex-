@@ -3,13 +3,52 @@
     <head>
         <title>Image Map of INDIA</title>
         <style>
-
+            img{
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                display: none;
+                position: absolute;
+                z-index: 1;
+            }
+            img:nth-child(1){
+                display: block;
+            }
         </style>
-        <script>
-
-        </script>
     </head>
     <body>
-        
+        <img src="india_map.jpg" alt="India" id="INDIA" usemap="#indiamap">
+        <img src="up_image.jpg" alt="UP" id="UP" usemap="#upmap">
+
+        <map name="indiamap">
+            <area alt="up" title="UP" href="#" coords="157,129,153,135,150,141,149,148,151,153,154,159,157,164,157,170,151,174,154,180,157,185,154,192,161,189,167,189,172,192,178,194,179,200,177,205,175,211,175,218,180,219,185,220,191,219,196,221,202,222,207,225,213,222,218,221,223,225,228,228,234,229,238,233,236,239,241,240,246,235,248,228,245,220,252,215,257,211,265,209,261,204,256,198,261,196,257,189,254,186,248,181,242,181,236,176,229,173,222,173,216,168,209,163,203,158,197,158,190,156,182,153,175,148,171,140,162,140" shape="poly" onclick="console.log('clicked')">
+        </map>
+         <script>
+            const areas = document.querySelectorAll('area');
+
+            console.log(areas)
+            const states = ['#UP'];
+
+
+
+
+            // managing display state of map area related images
+            function showState(node,index,parent,value){
+                const elem = document.querySelector(states[index]);
+                elem.style.display = value
+                console.log(elem.style.display)
+            }
+
+            // to get all area in html tags
+            areas.forEach((node,index,parent)=>{
+                console.log({node,index,parent})
+                node.addEventListener('mouseleave',()=>{
+                    showState(node,index,parent,'none')
+                })
+                node.addEventListener('mouseenter',()=>{
+                    showState(node,index,parent,'block')
+                })
+            })
+        </script>
     </body>
 </html>

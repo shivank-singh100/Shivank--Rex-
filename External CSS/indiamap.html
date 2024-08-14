@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Map Of INDIA</title>
+        <style>
+            body{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 100%;
+                width: 100%;
+            }
+            #upMap{
+                position: relative;
+            }
+            button{
+                position: absolute;
+                top: 21%;
+                right: 30%;
+                z-index: 1;
+                border: 10px;
+                border-radius: 10px;
+                display: none;
+                background-color: white;
+                transition: all 0.5s ease-in-out;
+                box-shadow:3px 5px 5px black,1px 1px 3px black;
+            }
+            #upMap{
+                transition: all 100s ease-in-out;
+            }
+            img{
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="/india map.jpg" alt="India Map" usemap="#india" id="india">
+
+        <img src="/UPMap.jpeg" alt="UP" usemap="#up" id="upMap" style="display: none;">
+        <map name="india">
+            <area target="" alt="UP" title="UP" href="#" coords="194,164,209,162,219,169,228,173,236,176,244,181,252,180,257,188,263,193,257,195,256,203,266,207,258,210,253,213,248,218,247,224,248,231,245,239,237,236,237,227,229,228,223,223,217,219,211,221,204,220,198,220,196,214,191,218,185,218,178,217,175,209,177,201,178,194,171,191,165,189,159,187,156,181,153,173,156,166,153,159,151,151,150,143,151,136,155,131,161,132,161,143,167,141,172,143,177,145,176,150,182,152,188,155,194,156,199,159" shape="poly" id="upArea">
+
+            <map name="up">
+                <area alt="Farrukhabad" title="Farrukhabad" href="fbd.html" coords="143,161,141,166,145,170,148,175,148,181,148,186,152,189,155,193,157,198,163,198,168,195,173,190,174,182,172,175,166,170,159,167,150,165" shape="poly" target="_self">
+            </map>
+
+            <button id="close">&times;</button>
+
+        </map>
+        <script>
+            const UPMap = document.getElementById('upMap')
+            const upArea = document.getElementById('upArea');
+            const indiaMap = document.getElementById('india');
+            const closeB = document.getElementById('close')
+            upArea.addEventListener('click', () => {
+                UPMap.style.display = 'block';
+                UPMap.style.maxWidth = '100%';
+                UPMap.style.maxHeight = '100%';
+                UPMap.style.objectFit = 'contain';
+                UPMap.style.position = 'absolute';
+                UPMap.style.top = '50px';
+                UPMap.style.left = '100px;'
+                UPMap.style.zIndex = '1';
+                indiaMap.style.opacity = '0.5';
+                closeB.style.display = 'block';
+            });
+
+            closeB.addEventListener('click',()=>{
+                UPMap.style.display = 'none';
+                closeB.style.display = 'none'
+                indiaMap.style.opacity = 1;
+            });
+
+        </script>
+    </body>
+</html>
